@@ -1,7 +1,10 @@
 public class IfElseDemo {
 	public static void main(String[] args) {
+
 		int a = 20; //
+
 		System.out.println("babu 10rs ha kya ...?");
+
 		if (a > 10) {
 			System.out.println("chal tu khush rah");
 			a = a - 10;
