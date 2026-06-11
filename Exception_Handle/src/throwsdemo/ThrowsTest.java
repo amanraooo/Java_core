@@ -1,4 +1,4 @@
-package throwsdemo;
+package throwsDemo;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
