@@ -1,6 +1,6 @@
 package throwDemo;
 
-public class ThrowThorws {
+public class ThrowThrows {
 	public static void main(String[] args) {
 		try{
 			checAgeCal(-1);
