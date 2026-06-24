@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MapDemo {
-	List<Integer> list = Arrays.asList(10,15,20,25,30);
+	List<Integer> list = Arrays.asList(1,2,3);
 
-      list.stream()
-		.filter(n -> n % 2 == 0)
+       list.stream()
+		.map(n -> n*n)
 			.forEach(System.out::println);
 }
