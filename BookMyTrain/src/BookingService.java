@@ -28,4 +28,22 @@ public class BookingService {
 		return searchResult;
 	}
 
+	private Ticket bookTicket(User user, int trainId, int seatCount){
+
+		for (Train train : trainList){
+			if(train.getTrainId()==trainId){
+				if(train.bookSeats(seatCount)){
+					Ticket ticket = new Ticket(user, train , seatCount);
+					ticketList.add(ticket);
+					return ticket;
+				}
+				else{
+					System.out.println("No enough seats available");
+					return  null;
+				}
+			}
+		}
+		System.out.println("Train ID not found");
+		return null;
+	}
 }
