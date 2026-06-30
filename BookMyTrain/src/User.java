@@ -44,4 +44,8 @@ public class User {
 		this.contact = contact;
 	}
 
+	@Override
+	public String toString() {
+		return  fullname + " ( " + username + " ) ";
+	}
 }
