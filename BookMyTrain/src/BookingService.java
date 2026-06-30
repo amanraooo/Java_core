@@ -31,8 +31,11 @@ public class BookingService {
 	private Ticket bookTicket(User user, int trainId, int seatCount){
 
 		for (Train train : trainList){
+
 			if(train.getTrainId()==trainId){
+
 				if(train.bookSeats(seatCount)){
+
 					Ticket ticket = new Ticket(user, train , seatCount);
 					ticketList.add(ticket);
 					return ticket;
