@@ -45,4 +45,12 @@ public class UserService {
 		}
 		currentUser = null;
 	}
+
+	public User getCurrentUser(){
+		return currentUser;
+	}
+
+	public boolean isLoggedIn(){
+		return currentUser!=null;
+	}
 }
