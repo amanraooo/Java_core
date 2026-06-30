@@ -62,4 +62,29 @@ public class Train {
 	public void setAvailableSeats(int availableSeats) {
 		this.availableSeats = availableSeats;
 	}
+
+	public boolean bookSeats(int count){
+		if(count<=availableSeats){
+			availableSeats-=count;
+			return true;
+		}
+		return false;
+	}
+
+	public void CancelSeats(int count)
+	{
+		availableSeats+=count;
+	}
+
+	@Override
+	public String toString(){
+
+		return trainId + " | "
+				+ name + " | "
+				+ source + " -> "
+				+ destination
+				+ " Seats Available: "+availableSeats;
+	}
+
+
 }
