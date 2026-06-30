@@ -8,8 +8,8 @@ public class UserService {
 	private User currentUser = null;
 
 	public boolean registerUser(String username, String password, String fullname, String contact){
-		if (userMap.containsKey(username)) {
 
+		if (userMap.containsKey(username)) {
 			System.out.println("Username already taken, please choose another username");
 		}
 
@@ -17,6 +17,25 @@ public class UserService {
 		userMap.put(username,user);
 		System.out.println("Registration Succesfull : )");
 
+		return true;
+	}
+
+	public boolean loginUser(String username, String password){
+
+		if (!userMap.containsKey(username)) {
+			System.out.println("No User found with this Username. ");
+			return false;
+		}
+
+		User user =  userMap.get(username);
+
+		if(!user.getPassword().equals(password)){
+			System.out.println("Incorrect Password");
+			return false;
+		}
+
+		currentUser = user;
+		System.out.println("Welcome: "+currentUser.getFullname()+" !");
 		return true;
 	}
 }
