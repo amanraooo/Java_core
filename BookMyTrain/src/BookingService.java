@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class BookingService {
@@ -49,4 +50,39 @@ public class BookingService {
 		System.out.println("Train ID not found");
 		return null;
 	}
+
+	public List<Train> getTicketByUser(User user){
+		List<Ticket> res = new ArrayList<>();
+
+		for (Ticket ticket: ticketList){
+			if(ticket.getUser().getUsername().equalsIgnoreCase(user.getUsername())){
+				res.add(ticket);
+			}
+		}
+		return res;
+	}
+
+	public  boolean cancelTicket(int ticketId, User user){
+		Iterator<Ticket> iterator = ticketList.listIterator();
+
+		while(iterator.hasNext()){
+			Ticket ticket = iterator.next();
+
+			if(ticket.getTicketId()==ticketId &&
+			ticket.getUser().getUsername().equalsIgnoreCase(user.getUsername()){
+
+				Train train = ticket.getTrain();
+				train.CancelSeats(ticket.getSeatBooked());
+				iterator.remove();
+				System.out.println("Ticket "+ticketId+" cancelled successfully");
+				return true;
+			}
+		}
+		System.out.println("Ticket not found or does not belong to current user");
+
+		return false;
+
+	}
+
+
 }
