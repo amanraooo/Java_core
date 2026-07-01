@@ -29,7 +29,7 @@ public class BookingService {
 		return searchResult;
 	}
 
-	private Ticket bookTicket(User user, int trainId, int seatCount){
+	public Ticket bookTicket(User user, int trainId, int seatCount){
 
 		for (Train train : trainList){
 
