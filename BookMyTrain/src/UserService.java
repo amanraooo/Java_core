@@ -39,7 +39,7 @@ public class UserService {
 		return true;
 	}
 
-	private void logOutUser(){
+	public void logOutUser(){
 		if(currentUser!=null){
 			System.out.println("Logged Out "+ currentUser.getFullname());
 		}
