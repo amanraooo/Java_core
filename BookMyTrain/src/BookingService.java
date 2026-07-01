@@ -84,5 +84,11 @@ public class BookingService {
 
 	}
 
+	public void listAllTrains(){
+		System.out.println("List of all Trains");
+		for(Train train: trainList){
+			System.out.println(train);
+		}
+	}
 
 }
