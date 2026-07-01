@@ -133,9 +133,46 @@ public class IRCTCAPP {
 		}
 	}
 
-		private void exitApp()
+	private void bookTicket(){
+		System.out.println("Enter Train ID to book:");
+		int trainId= scanner.nextInt();
+
+		System.out.println("Enter number of seats to book:");
+		int seats = scanner.nextInt();
+
+		Ticket ticket = bookingService.bookTicket(userService.getCurrentUser(),trainId,seats);
+
+		if(ticket!=null){
+			System.out.println("Booking successfull");
+			System.out.println(ticket);
+		}
+	}
+
+	private void viewMyTicket()
+	{
+		List<Ticket> ticketByUser = bookingService.getTicketByUser(userService.getCurrentUser());
+		if(ticketByUser.isEmpty())
 		{
+			System.out.println("No Ticket Booked yet");
+		}
+		else {
+			System.out.println("Your Tickets:");
+			for(Ticket ticket:ticketByUser)
+			{
+				System.out.println(ticket);
+			}
+		}
+	}
+
+	private void cancelTicket()
+	{
+		System.out.println("Enter Ticket ID to cancel:");
+		int ticketID=scanner.nextInt();
+		bookingService.cancelTicket(ticketID,userService.getCurrentUser());
+	}
+
+	private void exitApp(){
 			System.out.println("Thank you for using IRTCT App.");
 			System.exit(0);
-		}
+	}
 }
